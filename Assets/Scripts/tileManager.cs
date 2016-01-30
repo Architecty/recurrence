@@ -15,6 +15,8 @@
     public GameObject[] transitTiles;
     public GameObject[] choiceTiles;
 
+    public GameObject[][] transitPools;
+
     //This is your state of progress, and used to score at the end of the level, as well as show where your next step is.
     //0 means you haven't passed through the level. 1 is that you passed it. All other numbers are failures of some variety.
     public int[] levelSuccess = new int[0];
@@ -33,14 +35,48 @@
 	
     }
 
+    //void createPools()
+    //{
+    //    for (int i = 0; i < )
+    //}
 
     void initializeVariables()
     {
         playerCamera = playerController.transform.GetComponentInChildren<Camera>();
-        levelSuccess = new int[actionTiles.Length];
+        levelSuccess = new int[choiceTiles.Length];
         for(int i = 0; i < levelSuccess.Length; i++)
         {
             levelSuccess[i] = 0;
         }
     }
-  }
+
+    void moveToChoice(int choiceNum)
+    {
+
+    }
+
+    void moveToTransit(int choiceNum)
+    {
+        //Deactivate all of the old tiles
+
+        //Find all of the current tile's entrance/exit points
+
+        //Find the next tile
+
+        //Activate a number of the tiles equal to the current tile's entrance/exit points
+
+        //Place the tiles with the entrance point touching all of the current tile's entrance/exit points
+    }
+
+
+    void deactivateTile(GameObject tile)
+    {
+        Destroy(tile);
+    }
+
+    //Create / activate a new tile of a certain type, with its entry point in the same place as the 
+    void activateTile(GameObject tile, Transform exitPoint)
+    {
+        Instantiate(tile, exitPoint.position, exitPoint.rotation);
+    }
+}
