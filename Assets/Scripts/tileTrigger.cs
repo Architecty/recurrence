@@ -7,11 +7,12 @@ public class tileTrigger : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    levelTileManager = GameObject.find<levelTileManager>()
-	}
+
+    }
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void OnTriggerEnter () {
+        Debug.Log("HAS ENTERED NEW TRIGGER " + transform.parent.name);
+        levelTileManager.enterTile(transform.parent.name);
 	}
 }

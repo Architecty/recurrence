@@ -50,6 +50,11 @@
         }
     }
 
+    public void enterTile(string tileName)
+    {
+
+    }
+
     void moveToChoice(int choiceNum)
     {
 
